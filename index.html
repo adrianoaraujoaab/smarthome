@@ -50,14 +50,15 @@
                 align-items: center;
                 page-break-after: always; /* Força uma quebra de página após a capa */
             }
-            /* Cada seção de capítulo deve começar em uma nova página */
+            /* Cada seção de capítulo deve começar em uma nova página e não ter quebras internas */
             section:not(#capa) {
                 page-break-before: always;
+                page-break-inside: avoid; /* Previne quebras de página no meio de um capítulo */
                 background-color: #fff; /* Fundo branco para as seções */
                 box-shadow: none; /* Remove as sombras das seções */
             }
             /* Evita quebras de página dentro de imagens e blocos de conteúdo */
-            img, .flex, .grid, .text-justify, ul, ol {
+            img, .flex, .grid, .text-justify, ul, ol, h2, h3, h4, p {
                 page-break-inside: avoid;
             }
             /* Aumenta as margens para melhor visualização na impressão */
