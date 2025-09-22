@@ -47,7 +47,7 @@
                 page-break-after: always; /* Força uma quebra de página após a capa */
             }
             /* Cada seção de capítulo deve começar em uma nova página e não ter quebras internas */
-            section:not(#capa) {
+            section:not(#capa, #sumario) {
                 page-break-before: always;
                 page-break-inside: avoid; /* Previne quebras de página no meio de um capítulo */
                 background-color: #fff; /* Fundo branco para as seções */
@@ -92,13 +92,13 @@
     <div class="container mx-auto bg-white p-6 sm:p-12 rounded-2xl shadow-2xl">
         <section id="capa" class="mb-12">
              <img id="ebook-cover" class="w-full h-auto rounded-lg shadow-xl" src="https://placehold.co/800x450/374151/FFFFFF?text=Capa+do+E-book" alt="[Capa do E-book]" />
+        </section>
+
+        <section id="sumario" class="mb-12 p-8 bg-gray-50 rounded-lg">
              <div class="text-center mt-6">
                  <h1 class="text-3xl sm:text-5xl font-extrabold text-indigo-800">GUIA PRÁTICO PARA CASA INTELIGENTE</h1>
                  <p class="text-xl text-gray-500 mt-2">Por Adriano Araújo</p>
              </div>
-        </section>
-
-        <section id="sumario" class="mb-12">
             <h2 class="text-3xl font-bold text-gray-700 mb-6">Sumário</h2>
             <ul class="list-none space-y-3 text-lg text-gray-600">
                 <li><a href="#introducao" class="chapter-link">1. Introdução: O Futuro da Sua Casa na Palma da Sua Mão</a></li>
