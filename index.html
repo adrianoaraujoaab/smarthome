@@ -27,6 +27,68 @@
             border-radius: 0.75rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
+        /* Estilos específicos para impressão em PDF */
+        @media print {
+            body {
+                background-color: #fff; /* Fundo branco para impressão */
+            }
+            .container {
+                box-shadow: none; /* Remove a sombra do container */
+                padding: 0;
+            }
+            /* Esconde o sumário e outros elementos que não são necessários na impressão */
+            #sumario, .chapter-link {
+                display: none;
+            }
+            /* A capa deve ocupar a primeira página */
+            #capa {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                page-break-after: always; /* Força uma quebra de página após a capa */
+            }
+            /* Cada seção de capítulo deve começar em uma nova página */
+            section:not(#capa) {
+                page-break-before: always;
+                background-color: #fff; /* Fundo branco para as seções */
+                box-shadow: none; /* Remove as sombras das seções */
+            }
+            /* Evita quebras de página dentro de imagens e blocos de conteúdo */
+            img, .flex, .grid, .text-justify, ul, ol {
+                page-break-inside: avoid;
+            }
+            /* Aumenta as margens para melhor visualização na impressão */
+            body, html {
+                margin: 0;
+            }
+            
+            /* Ajusta os tamanhos de fonte e margens para impressão */
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            h4 { font-size: 1.2rem; }
+            p, li { font-size: 1rem; }
+            
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 1cm;
+            }
+            
+            section {
+                padding: 1cm;
+            }
+
+            /* Garante que imagens e outros elementos não sejam cortados */
+            img {
+                max-width: 100%;
+                height: auto;
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -215,7 +277,7 @@
                     <p class="text-gray-700 mb-4">Você pode usá-las para cortar o "consumo fantasma" de aparelhos em stand-by, como TVs e carregadores. A instalação é simples e não exige conhecimento técnico: basta conectar a tomada na parede, o aparelho nela, e adicionar o dispositivo no aplicativo.</p>
 
                     <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-2">6.1. Economizar Dinheiro na Prática</h3>
-                    <p class="text-gray-700 mb-4">Uma das grandes vantagens da tomada inteligente é a capacidade de gerir o consumo de energia dos seus dispositivos de forma inteligente, diminuindo a conta de eletricidade no final do mês. Elas permitem que você:</p>
+                    <p class="text-700 mb-4">Uma das grandes vantagens da tomada inteligente é a capacidade de gerir o consumo de energia dos seus dispositivos de forma inteligente, diminuindo a conta de eletricidade no final do mês. Elas permitem que você:</p>
                     <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 mt-4">
                         <li><span class="font-bold">Corte o Consumo Fantasma:</span> Sabe aquele consumo de energia que os aparelhos têm mesmo quando estão desligados? As tomadas inteligentes permitem que você os desligue completamente, eliminando esse consumo desnecessário.</li>
                         <li><span class="font-bold">Programe Horários de Uso:</span> Você pode programar o uso de aparelhos de alto consumo para horários de menor tarifa de energia, se aplicável, ou simplesmente garantir que eles só funcionem quando são realmente necessários, como a bomba da piscina ou a cafeteira.</li>
